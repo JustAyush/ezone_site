@@ -1,0 +1,102 @@
+@import "../../../baseStyles/shared.scss";
+
+.container {
+  width: 100%;
+  height: 500px;
+  background-color: gray;
+  overflow: hidden;
+  position: relative;
+
+  .slide {
+    width: 100%;
+    height: 500px;
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    //   url("https://www.stantec.com/content/dam/stantec/images/projects/0049/wrigley-ballpark-1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .divider {
+      @include divider;
+    }
+    .contentContainer {
+      @include container;
+      .featuredProject {
+        @include heading;
+        visibility: none; // as a placeholder
+        opacity: 0;
+        &:before {
+          opacity: 0;
+        }
+      }
+      .title {
+        @include featuredTitle;
+        width: 40%;
+      }
+      .subTitle {
+        @include featuredSubTitle;
+      }
+      .dividerHalf {
+        @include dividerHalf;
+      }
+      .moreBtn {
+        @include primaryBtnOpposite;
+      }
+    }
+  }
+
+  .featuredHeadingWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include container;
+    .divider {
+      @include divider;
+    }
+    .featuredHeading {
+      @include heading;
+      color: white;
+    }
+  }
+}
+
+.next {
+  position: absolute;
+  top: 40%;
+  right: -50px;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50% 0% 0% 50% !important;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    .icon {
+      color: $primaryColor;
+      transition: color 0.3s ease 0s;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    color: rgb(126, 122, 122);
+    top: 50%;
+    left: 18%;
+    transform: translate(0, -50%);
+    font-size: 20px;
+    transition: color 0.3s ease 0s;
+  }
+}
+
+.prev {
+  @extend .next;
+  left: -50px;
+
+  border-radius: 0% 50% 50% 0% !important;
+  z-index: 1;
+  .icon {
+    left: 66%;
+  }
+}

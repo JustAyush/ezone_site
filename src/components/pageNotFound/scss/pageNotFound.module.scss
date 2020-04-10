@@ -1,0 +1,14 @@
+@import "../../../baseStyles/shared.scss";
+
+.notFoundMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #a1a1a1;
+
+  h4 {
+    color: #4e4e4e;
+  }
+}

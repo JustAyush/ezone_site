@@ -1,0 +1,129 @@
+@import "../../../baseStyles/shared.scss";
+
+.allClientContainer {
+  width: $xmContainerWidth;
+  margin: 0 auto;
+
+  @include landscapeTablet() {
+    width: $mdContainerWidth;
+  }
+  @include desktop() {
+    width: $lgContainerWidth;
+  }
+  @include largeDesktop() {
+    width: $xlContainerWidth;
+  }
+
+  .ourClients {
+    font-family: $titleFont;
+    color: $title;
+    font-size: $headingMobile;
+    padding-bottom: $spacingMobile;
+    display: inline-block; // enables the 100% length of border top equal to the text length
+
+    &:before {
+      // before => border top, after => border bottom
+      content: "";
+      display: block;
+      width: 30% !important;
+      padding-bottom: 8px;
+      border-top: 4px solid $primaryColor;
+    }
+
+    @include landscapeTablet() {
+      font-size: $headingTablet;
+      padding-bottom: $spacingTablet;
+    }
+
+    @include largeDesktop() {
+      font-size: $headingDesktop;
+      padding-bottom: $spacingDesktop;
+    }
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 2fr));
+    grid-gap: 2rem;
+    grid-row-gap: 1rem;
+    list-style: none;
+    width: 96%;
+    margin: 0 auto;
+
+    @include landscapeTablet() {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 3fr));
+      grid-gap: 10rem;
+      grid-row-gap: 2rem;
+    }
+
+    li {
+      div {
+        position: relative;
+        &:before {
+          content: " ";
+          display: block;
+          width: 100%;
+          padding-top: 100%;
+        }
+
+        img {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          bottom: 0px;
+          right: 0px;
+          width: 100%;
+          height: 100%;
+          filter: gray;
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+          transition: all 0.3s ease;
+        }
+      }
+
+      p {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        text-align: center;
+        padding-top: 10px;
+        font-family: $bodyFont;
+        color: $title;
+        font-size: 12px;
+        @include desktop {
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        div {
+          img {
+            filter: none;
+            -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
+            transition: all 0.3s ease;
+          }
+        }
+        p {
+          opacity: 1;
+          transition: opacity 0.3s ease;
+          text-align: center;
+          padding-top: 10px;
+          font-family: $bodyFont;
+          color: $title;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.divider {
+  height: $dividerMobile;
+  @include landscapeTablet() {
+    height: $dividerTablet;
+  }
+
+  @include largeDesktop() {
+    height: $dividerDesktop;
+  }
+}

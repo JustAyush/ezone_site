@@ -1,0 +1,201 @@
+@import "../../../baseStyles/shared.scss";
+
+$infoFontSize: 16px;
+
+.formContainer {
+  @include container;
+
+  .gridParent {
+    display: grid;
+    grid-template-areas:
+      "Container-1"
+      "Container-2";
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 0;
+    grid-row-gap: 100px;
+
+    @include landscapeTablet() {
+      grid-template-areas: "Container-1 Container-2";
+      grid-template-columns: repeat(2, 45% 55%);
+      grid-template-rows: repeat(1, auto);
+      grid-column-gap: 100px;
+      grid-row-gap: 0px;
+    }
+
+    @include desktop() {
+      grid-column-gap: 150px;
+    }
+
+    .gridChild1 {
+      grid-area: Container-1;
+      height: 400px;
+      // background-color: pink;
+      p {
+        font-family: $titleFont;
+        color: $title;
+        font-size: $infoFontSize;
+      }
+
+      .flashMessage {
+        color: $primaryColor;
+      }
+
+      form {
+        margin-top: 30px;
+        div {
+          // styling the label
+          label {
+            font-family: $bodyFont;
+            color: $title;
+          }
+          // styling the input font
+          .input {
+            font-family: $bodyFont;
+            color: $title;
+          }
+          input:required {
+            box-shadow: none !important;
+          }
+          // input:invalid {
+          //   box-shadow: 0 0 3px red;
+          // }
+          // styling the placeholder text
+          ::placeholder {
+            font-family: $bodyFont;
+            color: $bodytxt;
+          }
+          :-ms-input-placeholder {
+            font-family: $bodyFont;
+            color: $bodytxt;
+          }
+          ::-ms-input-placeholder {
+            font-family: $bodyFont;
+            color: $bodytxt;
+          }
+          //   styling the focus glow
+          textarea:focus,
+          input[type="text"]:focus,
+          input[type="email"]:focus {
+            border-color: rgba(17, 190, 184, 0.8);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+              0 0 8px rgba(17, 190, 184, 0.6);
+            outline: 0 none;
+          }
+          textarea:required {
+            box-shadow: none !important;
+          }
+        }
+      }
+    }
+    .gridChild2 {
+      grid-area: Container-2;
+      height: 300px;
+      // background-color: blue;
+      align-self: center;
+
+      .logo {
+        width: 160px;
+        height: auto;
+        @include landscapeTablet() {
+          width: 180px;
+        }
+      }
+
+      .location {
+        font-family: $bodyFont;
+        font-size: $bodytxt;
+        color: $title;
+      }
+
+      .innerDivider {
+        height: 20px;
+      }
+
+      div {
+        .icon {
+          font-size: 20px;
+          width: 20px;
+          color: $bodytxt;
+        }
+        span {
+          margin-left: 15px;
+          font-family: $bodyFont;
+          color: $title;
+          font-size: $bodytxt;
+        }
+      }
+
+      .middleIcon {
+        padding: 10px 0 10px 0;
+      }
+
+      .connect {
+        font-family: $bodyFont;
+        color: $title;
+        font-size: $infoFontSize;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+        @include landscapeTablet() {
+          width: 40%;
+        }
+        li {
+          .socialMediaIcon {
+            font-size: 30px;
+            color: $title;
+            transition: color 0.3s ease;
+            &:hover {
+              color: $primaryColor;
+              transition: color 0.3s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.submitBtn {
+  background-color: transparent;
+  -webkit-transition: background-color 0.5s ease 0s;
+  transition: background-color 0.5s ease 0s;
+  border-color: $bodytxt;
+  color: $title;
+  -webkit-transition: color 0.5s ease 0s;
+  transition: color 0.5s ease 0s;
+  width: $widthMobile;
+  display: block;
+  font-size: $btnfontSizeMobile;
+  margin-top: $btnMarginTopMobile;
+  font-family: $titleFont;
+
+  &:hover {
+    color: white;
+    -webkit-transition: color 0.5s ease 0s;
+    transition: color 0.5s ease 0s;
+    background-color: $primaryColor;
+    transition: background-color 0.5s ease 0s;
+    border-color: $primaryColor;
+  }
+
+  &:focus {
+    background-color: transparent;
+  }
+
+  @include landscapeTablet() {
+    font-size: $btnfontSizeTablet;
+    width: $widthTablet;
+    margin-top: $btnMarginTopTablet;
+  }
+  @include largeDesktop() {
+    font-size: $btnfontSizeDesktop;
+    width: $widthDesktop;
+    margin-top: $btnMarginTopDesktop;
+  }
+}

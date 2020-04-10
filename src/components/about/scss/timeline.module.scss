@@ -1,0 +1,17 @@
+@import "../../../baseStyles/shared.scss";
+
+.outerContainer {
+  background-color: $fadedbg;
+  .container {
+    @include containerInside;
+
+    .heading {
+      @include heading;
+    }
+
+    .timelineImg {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

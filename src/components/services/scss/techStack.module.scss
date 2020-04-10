@@ -1,0 +1,115 @@
+@import "../../../baseStyles/shared.scss";
+
+.techStackContainer {
+  width: $xmContainerWidth;
+  margin: 0 auto;
+
+  @include landscapeTablet() {
+    width: $mdContainerWidth;
+  }
+  @include desktop() {
+    width: $lgContainerWidth;
+  }
+  @include largeDesktop() {
+    width: $xlContainerWidth;
+  }
+
+  .techStack {
+    font-family: $titleFont;
+    color: $title;
+    font-size: $headingMobile;
+    padding-bottom: $spacingMobile;
+    display: inline-block; // enables the 100% length of border top equal to the text length
+
+    &:before {
+      // before => border top, after => border bottom
+      content: "";
+      display: block;
+      width: 30% !important;
+      padding-bottom: 8px;
+      border-top: 4px solid $primaryColor;
+    }
+
+    @include landscapeTablet() {
+      font-size: $headingTablet;
+      padding-bottom: $spacingTablet;
+    }
+
+    @include largeDesktop() {
+      font-size: $headingDesktop;
+      padding-bottom: $spacingDesktop;
+    }
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 0fr));
+    grid-gap: 0.2rem;
+    grid-row-gap: 0.2rem;
+    list-style: none;
+    width: 100%;
+
+    @include landscapeTablet() {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 0fr));
+    }
+
+    li {
+      .gridChild {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transition: background-color 0.05s ease-out;
+
+        &:hover {
+          transition: background-color 0.05s ease-out;
+          background-color: $fadedbg;
+          .childContent {
+            img {
+              transition: all 0.05s ease-out;
+              transform: scale(1.2);
+              filter: none;
+              -webkit-filter: grayscale(0%);
+              filter: grayscale(0%);
+            }
+            p {
+              color: $title;
+              transition: color 0.05s ease-out;
+              text-transform: uppercase;
+            }
+          }
+        }
+
+        @include landscapeTablet() {
+          width: 120px;
+          height: 120px;
+        }
+
+        .childContent {
+          position: absolute;
+          left: 50%;
+          top: 70%;
+          transform: translate(-50%, -60%);
+          img {
+            filter: gray;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            transition: all 0.05s ease-out;
+            width: 60px;
+            height: auto;
+            padding-bottom: 5px;
+            @include landscapeTablet() {
+              padding-bottom: 15px;
+            }
+          }
+          p {
+            text-align: center;
+            font-family: $bodyFont;
+            font-size: $bodyFontSize;
+            color: $bodytxt;
+            transition: color 0.05s ease-out;
+          }
+        }
+      }
+    }
+  }
+}

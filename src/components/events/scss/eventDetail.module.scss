@@ -1,0 +1,294 @@
+@import "../../../baseStyles/shared.scss";
+
+.parallax {
+  width: 100%;
+  height: 88vh;
+
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+  //   url("https://techcrunch.com/wp-content/uploads/2011/05/tcdisrupt_tc-9.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+
+  .eventHeading {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    @include landscapeTablet {
+      left: 75px;
+    }
+
+    @include desktop {
+      left: 200px;
+    }
+
+    .eventTitle {
+      font-family: $titleFont;
+      color: white;
+      font-size: 26px;
+      @include landscapeTablet() {
+        font-size: 28px;
+      }
+      @include largeDesktop() {
+        font-size: 35px;
+      }
+    }
+
+    .dateContainer {
+      margin-right: 25px;
+      .icon {
+        font-size: 14px;
+        color: white;
+        margin-right: 5px;
+      }
+      .eventDate {
+        font-family: $bodyFont;
+        color: white;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    }
+    .venueContainer {
+      .icon {
+        font-size: 14px;
+        color: white;
+        margin-right: 5px;
+      }
+      .eventVenue {
+        font-family: $bodyFont;
+        color: white;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.divider {
+  @include divider;
+}
+
+.upperContainer {
+  @include container;
+
+  .upperContent {
+    @include body;
+  }
+}
+
+.largePicGridParent {
+  display: grid;
+  grid-template-areas:
+    "Container-1"
+    "Container-2";
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 5px;
+
+  @include landscapeTablet {
+    grid-template-areas: "Container-1 Container-2";
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(1, auto);
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
+  }
+
+  .childGrid1 {
+    grid-area: Container-1;
+    width: 100%;
+    padding-top: 120%;
+
+    // background-image: url("https://observer.case.edu/wp-content/uploads/2019/02/Screen-Shot-2019-02-21-at-12.41.42-AM-900x883.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .childGrid2 {
+    grid-area: Container-2;
+    width: 100%;
+    padding-top: 120%;
+
+    // background-image: url("https://images.squarespace-cdn.com/content/v1/5415c10be4b014f5fe7d48fb/1575252596534-G9996PPQPLRD6VR7RPIH/ke17ZwdGBToddI8pDm48kFVLZvLBdE-d1IyYFxRbMCl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXuMBqnGA4zDIm6XK3pYGveve9-PDnJJ6DxEOe-xmB9IRrZkNvCHU_SL75OklhLncA/69%2B%25281%2529.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.lowerContainer {
+  @include container;
+  .lowerContent {
+    @include body;
+  }
+}
+
+.galleryContainer {
+  @include container;
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    list-style: none;
+    // grid-row-gap: 0px;
+
+    li {
+      img {
+        overflow: hidden;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.videoContainer {
+  @include container;
+
+  .embed {
+    overflow: hidden;
+    // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625)
+    padding-top: 56.25%;
+    position: relative;
+    .video {
+      border: 0;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}
+
+.dividerHalf {
+  @include dividerHalf;
+}
+
+.shareContainer {
+  @include container;
+  text-align: center;
+
+  .shareTxt {
+    font-family: $bodyFont;
+    color: $title;
+    font-size: 20px;
+    display: inline;
+    @include landscapeTablet {
+      font-size: 25px;
+    }
+  }
+  .iconShare {
+    display: inline;
+    .icon {
+      font-size: 20px;
+      color: $bodytxt;
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+
+      &:hover {
+        color: $title;
+        transition: all 0.3s ease 0s;
+      }
+      @include landscapeTablet {
+        font-size: 25px;
+      }
+    }
+  }
+  .middleIcon {
+    margin: 0px 20px 0px 20px;
+  }
+}
+
+.otherProjectParentGrid {
+  display: grid;
+  grid-template-areas:
+    "Container-1"
+    "Container-2";
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  @include landscapeTablet {
+    grid-template-areas: "Container-1 Container-2";
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(1, auto);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .childGrid1 {
+    grid-area: Container-1;
+    width: 100%;
+    padding-top: 25%;
+    background-color: blue;
+    position: relative;
+    cursor: pointer;
+
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    //   url("https://images.squarespace-cdn.com/content/v1/5415c10be4b014f5fe7d48fb/1575252596534-G9996PPQPLRD6VR7RPIH/ke17ZwdGBToddI8pDm48kFVLZvLBdE-d1IyYFxRbMCl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UXuMBqnGA4zDIm6XK3pYGveve9-PDnJJ6DxEOe-xmB9IRrZkNvCHU_SL75OklhLncA/69%2B%25281%2529.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    .previousTxt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-family: $titleFont;
+      font-size: 30px;
+      color: white;
+
+      @include landscapeTablet {
+        top: 50%;
+        left: 85%;
+        transform: translate(-85%, -50%);
+      }
+    }
+  }
+  .childGrid2 {
+    grid-area: Container-2;
+    width: 100%;
+    padding-top: 25%;
+    background-color: orange;
+    position: relative;
+    cursor: pointer;
+
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    //   url("https://observer.case.edu/wp-content/uploads/2019/02/Screen-Shot-2019-02-21-at-12.41.42-AM-900x883.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    .nextTxt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-family: $titleFont;
+      font-size: 30px;
+      color: white;
+
+      @include landscapeTablet {
+        top: 50%;
+        left: 15%;
+        transform: translate(-15%, -50%);
+      }
+    }
+  }
+}

@@ -1,0 +1,753 @@
+@import "./mixins.scss";
+@import "./googleFonts.scss";
+@import "./resets.scss";
+
+// fonts
+
+$titleFont: "title";
+$bodyFont: "body";
+
+// fontSize
+
+$headingMobile: 20px;
+$headingTablet: 25px;
+$headingDesktop: 30px;
+$bodyFontSize: 16px;
+
+// color
+
+$primaryColor: #11beb8;
+$fadedbg: #f9f9f9;
+$bodytxt: #a1a1a1;
+$title: #4e4e4e;
+
+$gradientValue1: #2affcc;
+$gradientValue2: #008faa;
+
+// headingBottomSpacing
+
+$spacingMobile: 35px;
+$spacingTablet: 45px;
+$spacingDesktop: 55px;
+
+// dividerHeight
+
+$dividerMobile: 50px;
+$dividerTablet: 60px;
+$dividerDesktop: 75px;
+
+// dividerHalfHeight
+
+$dividerHalfMobile: 25px;
+$dividerHalfTablet: 30px;
+$dividerHalfDesktop: 37.5px;
+
+// containerWidth
+
+$xmContainerWidth: 90%;
+$smContainerWidth: 90%; //576px portraitTablet
+$mdContainerWidth: 85%; //768px landscapeTablet
+$lgContainerWidth: 70%; //992px desktop
+$xlContainerWidth: 65%; //1200px largeDesktop
+
+//littleAbout (Beyond Engineering)
+
+$xmLittleAboutWidth: 75%;
+$smLittleAboutWidth: 90%; //576px portraitTablet
+$mdLittleAboutWidth: 70%; //768px landscapeTablet
+$lgLittleAboutWidth: 65%; //992px desktop
+$xlLittleAboutWidth: 55%; //1200px largeDesktop
+
+// innerContainer padding top and bottom (content inside gray div)
+
+$innerPaddingMobile: 50px;
+$innerPaddingTablet: 60px;
+$innerPaddingDesktop: 75px;
+
+// button
+
+$widthMobile: 100px;
+$widthTablet: 115px;
+$widthDesktop: 130px;
+$btnfontSizeMobile: 12px;
+$btnfontSizeTablet: 13.5px;
+$btnfontSizeDesktop: 15px;
+$btnMarginTopMobile: 10px;
+$btnMarginTopTablet: 15px;
+$btnMarginTopDesktop: 20px;
+
+// ourWorks padding bottom (space between Our Works and categories)
+
+$spacingWorkMobile: 20px;
+$spacingWorkTablet: 25px;
+$spacingWorkDesktop: 30px;
+
+// padding bottom (Our Works)
+
+$paddingBottomWorkMobile: 20px;
+$paddingBottomWorkTablet: 25px;
+$paddingBottomWorkDesktop: 25px;
+
+// About Page
+
+// background
+
+$bgheightMobile: 30vh;
+$bgheightTablet: 35vh;
+$bgheightDesktop: 60vh;
+
+$bgfontMobile: 30px;
+$bgfontTablet: 40px;
+$bgfontDesktop: 50px;
+
+// mixins
+
+@mixin divider {
+  height: $dividerMobile;
+  @include landscapeTablet() {
+    height: $dividerTablet;
+  }
+
+  @include largeDesktop() {
+    height: $dividerDesktop;
+  }
+}
+
+@mixin dividerHalf {
+  height: $dividerHalfMobile;
+  @include landscapeTablet() {
+    height: $dividerHalfTablet;
+  }
+
+  @include largeDesktop() {
+    height: $dividerHalfDesktop;
+  }
+}
+
+@mixin container {
+  width: $xmContainerWidth;
+  margin: 0 auto;
+
+  @include landscapeTablet() {
+    width: $mdContainerWidth;
+  }
+  @include desktop() {
+    width: $lgContainerWidth;
+  }
+  @include largeDesktop() {
+    width: $xlContainerWidth;
+  }
+}
+
+@mixin containerInside {
+  width: $xmContainerWidth;
+  margin: 0 auto;
+  padding-top: $innerPaddingMobile;
+  padding-bottom: $innerPaddingMobile;
+
+  @include landscapeTablet() {
+    width: $mdContainerWidth;
+    padding-top: $innerPaddingTablet;
+    padding-bottom: $innerPaddingTablet;
+  }
+  @include desktop() {
+    width: $lgContainerWidth;
+  }
+  @include largeDesktop() {
+    width: $xlContainerWidth;
+    padding-top: $innerPaddingDesktop;
+    padding-bottom: $innerPaddingDesktop;
+  }
+}
+
+@mixin heading {
+  font-family: $titleFont;
+  color: $title;
+  font-size: $headingMobile;
+  padding-bottom: $spacingMobile;
+  display: inline-block; // enables the 100% length of border top equal to the text length
+
+  &:before {
+    // before => border top, after => border bottom
+    content: "";
+    display: block;
+    width: 30% !important;
+    padding-bottom: 8px;
+    border-top: 4px solid $primaryColor;
+  }
+
+  @include landscapeTablet() {
+    font-size: $headingTablet;
+    padding-bottom: $spacingTablet;
+  }
+
+  @include largeDesktop() {
+    font-size: $headingDesktop;
+    padding-bottom: $spacingDesktop;
+  }
+}
+
+@mixin body {
+  font-family: $bodyFont;
+  color: $bodytxt;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+// featured project title
+
+@mixin featuredTitle {
+  font-family: $titleFont;
+  color: white;
+  font-size: 25px;
+  line-height: 40px;
+  padding-bottom: 10px;
+}
+
+// featured project subtitle
+
+@mixin featuredSubTitle {
+  font-family: $bodyFont;
+  color: $bodytxt;
+  font-size: 15px;
+  //   padding-bottom: 25px;
+}
+
+// primaryBtn
+@mixin primaryBtn {
+  background-color: transparent;
+  -webkit-transition: background-color 0.5s ease 0s;
+  transition: background-color 0.5s ease 0s;
+  border-color: $bodytxt;
+  color: $title;
+  -webkit-transition: color 0.5s ease 0s;
+  transition: color 0.5s ease 0s;
+  width: $widthMobile;
+  margin: 0 auto;
+  display: block;
+  font-size: $btnfontSizeMobile;
+  margin-top: $btnMarginTopMobile;
+  font-family: $titleFont;
+
+  &:hover {
+    color: white;
+    -webkit-transition: color 0.5s ease 0s;
+    transition: color 0.5s ease 0s;
+    background-color: $primaryColor;
+    // background: linear-gradient(
+    //   to top left,
+    //   $gradientValue1,
+    //   $gradientValue2
+    // );
+    // -webkit-transition: background 0.5s ease 0s;
+    transition: background-color 0.5s ease 0s;
+    border-color: $primaryColor;
+  }
+
+  &:focus {
+    background-color: $primaryColor;
+  }
+
+  @include landscapeTablet() {
+    font-size: $btnfontSizeTablet;
+    width: $widthTablet;
+    margin-top: $btnMarginTopTablet;
+  }
+  @include largeDesktop() {
+    font-size: $btnfontSizeDesktop;
+    width: $widthDesktop;
+    // margin-top: $btnMarginTopDesktop;
+  }
+}
+
+// primaryBtn (opposite)
+@mixin primaryBtnOpposite {
+  background-color: $primaryColor;
+  -webkit-transition: background-color 0.5s ease 0s;
+  transition: background-color 0.5s ease 0s;
+  //   border-color: $bodytxt;
+  color: white;
+  -webkit-transition: color 0.5s ease 0s;
+  transition: color 0.5s ease 0s;
+  width: $widthMobile;
+  display: block;
+  font-size: $btnfontSizeMobile;
+  margin-top: $btnMarginTopMobile;
+  font-family: $titleFont;
+
+  &:hover {
+    color: $primaryColor;
+    -webkit-transition: color 0.5s ease 0s;
+    transition: color 0.5s ease 0s;
+    background-color: transparent;
+    transition: background-color 0.5s ease 0s;
+    border-color: $primaryColor;
+  }
+
+  &:focus {
+    background-color: $primaryColor;
+  }
+
+  @include landscapeTablet() {
+    font-size: $btnfontSizeTablet;
+    width: $widthTablet;
+    margin-top: $btnMarginTopTablet;
+  }
+  @include largeDesktop() {
+    font-size: $btnfontSizeDesktop;
+    width: $widthDesktop;
+    margin-top: $btnMarginTopDesktop;
+  }
+}
+
+// desktop, tablet and mobile (only for detail page)
+
+@mixin desktopTabletMobileDetail {
+  .device {
+    border-radius: 20px !important;
+    position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: inset 0 4px 7px 1px #fff,
+      inset 0 -5px 20px rgba(207, 194, 194, 0.5),
+      0 2px 6px rgba(207, 194, 194, 0.5), 0 10px 20px rgba(207, 194, 194, 0.5);
+  }
+
+  .device img {
+    width: 100%;
+    border-radius: 4px !important;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+  }
+
+  .device::before,
+  .device::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fff;
+    box-shadow: inset 0 4px 7px 1px #fff,
+      inset 0 -5px 20px rgba(173, 186, 204, 0.25),
+      0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+  }
+
+  .phone {
+    padding: 12% 3%;
+  }
+
+  .tablet {
+    padding: 8% 2%;
+  }
+
+  .desktop {
+    margin-bottom: 11%;
+    border-radius: 1vw !important;
+    padding: 1.5%;
+  }
+
+  // Phone button
+  .phone::after {
+    border-radius: 50% !important;
+    margin: 0 auto 2%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 0;
+    padding-top: 10%;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Phone speaker
+  .phone::before {
+    border-radius: 50px !important;
+    margin: 5.5% auto 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 1%;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Tablet button
+  .tablet::after {
+    border-radius: 50% !important;
+    margin: 0 auto 2%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 6%;
+    height: 0;
+    padding-top: 6%;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Tablet camera
+  .tablet::before {
+    border-radius: 50% !important;
+    margin: 3.5% auto 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 2.25%;
+    height: 0;
+    padding-top: 2.25%;
+    background: #eee;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Desktop arm
+  .desktop::before {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -18%;
+    width: 20%;
+    height: 20%;
+    background: #fafafa;
+    z-index: -1;
+  }
+
+  // Bottom of desktop stand
+  .desktop::after {
+    border-radius: 4px 4px 24px 24px !important;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -19.5%;
+    width: 34%;
+    height: 2%;
+  }
+
+  // Phone, tablet, and desktop together
+  .deviceCollection {
+    width: 100%;
+    position: relative;
+  }
+
+  .deviceCollection::after {
+    content: "";
+    display: block;
+    padding-top: 62.75%;
+  }
+
+  .deviceCollection .phoneContainer,
+  .deviceCollection .tabletContainer,
+  .deviceCollection .desktop {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .deviceCollection .phone,
+  .deviceCollection .tablet {
+    margin: 0;
+  }
+
+  .deviceCollection .phoneContainer {
+    left: 0;
+    max-width: 15%;
+    z-index: 2;
+  }
+
+  .deviceCollection .tabletContainer {
+    right: 0;
+    max-width: 30%;
+    z-index: 1;
+  }
+
+  .deviceCollection .desktop {
+    left: 0;
+    right: 0;
+    margin: 0 5% 10.25%;
+  }
+}
+
+// desktop, tablet and mobile
+
+@mixin desktopTabletMobile {
+  .device {
+    border-radius: 20px;
+    position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: inset 0 4px 7px 1px #fff,
+      inset 0 -5px 20px rgba(207, 194, 194, 0.5),
+      0 2px 6px rgba(207, 194, 194, 0.5), 0 10px 20px rgba(207, 194, 194, 0.5);
+  }
+
+  .device img {
+    width: 100%;
+    // border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+  }
+
+  .device::before,
+  .device::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fff;
+    box-shadow: inset 0 4px 7px 1px #fff,
+      inset 0 -5px 20px rgba(173, 186, 204, 0.25),
+      0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+  }
+
+  .phone {
+    padding: 12% 3%;
+  }
+
+  .tablet {
+    padding: 8% 2%;
+  }
+
+  .desktop {
+    margin-bottom: 11%;
+    // border-radius: 1vw;
+    padding: 1.5%;
+  }
+
+  // Phone button
+  .phone::after {
+    // border-radius: 50%;
+    margin: 0 auto 2%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 0;
+    padding-top: 10%;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Phone speaker
+  .phone::before {
+    // border-radius: 50px;
+    margin: 5.5% auto 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 1%;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Tablet button
+  .tablet::after {
+    // border-radius: 50%;
+    margin: 0 auto 2%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 6%;
+    height: 0;
+    padding-top: 6%;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Tablet camera
+  .tablet::before {
+    // border-radius: 50%;
+    margin: 3.5% auto 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 2.25%;
+    height: 0;
+    padding-top: 2.25%;
+    background: #eee;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Desktop arm
+  .desktop::before {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -18%;
+    width: 20%;
+    height: 20%;
+    background: #fafafa;
+    z-index: -1;
+  }
+
+  // Bottom of desktop stand
+  .desktop::after {
+    // border-radius: 4px 4px 24px 24px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -19.5%;
+    width: 34%;
+    height: 2%;
+  }
+
+  // Phone, tablet, and desktop together
+  .deviceCollection {
+    width: 100%;
+    position: relative;
+  }
+
+  .deviceCollection::after {
+    content: "";
+    display: block;
+    padding-top: 62.75%;
+  }
+
+  .deviceCollection .phoneContainer,
+  .deviceCollection .tabletContainer,
+  .deviceCollection .desktop {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .deviceCollection .phone,
+  .deviceCollection .tablet {
+    margin: 0;
+  }
+
+  .deviceCollection .phoneContainer {
+    left: 0;
+    max-width: 15%;
+    z-index: 2;
+  }
+
+  .deviceCollection .tabletContainer {
+    right: 0;
+    max-width: 30%;
+    z-index: 1;
+  }
+
+  .deviceCollection .desktop {
+    left: 0;
+    right: 0;
+    margin: 0 5% 10.25%;
+  }
+}
+
+// Tablet and mobile
+
+@mixin tabletMobile {
+  .device {
+    // border-radius: 20px !important;
+    position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow: inset 0 4px 7px 1px #fff,
+      inset 0 -5px 20px rgba(207, 194, 194, 0.5),
+      0 2px 6px rgba(207, 194, 194, 0.5), 0 10px 20px rgba(207, 194, 194, 0.5);
+  }
+
+  .device img {
+    width: 100%;
+    // border-radius: 4px !important;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+  }
+
+  .device::before,
+  .device::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fff;
+    box-shadow: inset 0 4px 7px 1px #fff,
+      inset 0 -5px 20px rgba(173, 186, 204, 0.25),
+      0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+  }
+
+  .phone {
+    padding: 12% 3%;
+  }
+
+  .tablet {
+    padding: 8% 2%;
+  }
+
+  // Phone button
+  .phone::after {
+    // border-radius: 50% !important;
+    margin: 0 auto 2%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 0;
+    padding-top: 10%;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Phone speaker
+  .phone::before {
+    // border-radius: 50px !important;
+    margin: 5.5% auto 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 1%;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Tablet button
+  .tablet::after {
+    // border-radius: 50% !important;
+    margin: 0 auto 2%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 6%;
+    height: 0;
+    padding-top: 6%;
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Tablet camera
+  .tablet::before {
+    // border-radius: 50% !important;
+    margin: 3.5% auto 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 2.25%;
+    height: 0;
+    padding-top: 2.25%;
+    background: #eee;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  // Phone, tablet, and desktop together
+  .deviceCollection {
+    width: 100%;
+    position: relative;
+  }
+
+  .deviceCollection::after {
+    content: "";
+    display: block;
+    padding-top: 60%;
+  }
+
+  .deviceCollection .phoneContainer,
+  .deviceCollection .tabletContainer {
+    position: absolute;
+    bottom: 0;
+    // left: 50%;
+    transform: translate(40%, 0);
+  }
+
+  .deviceCollection .phone,
+  .deviceCollection .tablet {
+    margin: 0;
+  }
+
+  .deviceCollection .phoneContainer {
+    left: 10%;
+    max-width: 25%;
+    z-index: 2;
+  }
+
+  .deviceCollection .tabletContainer {
+    left: 20%;
+    max-width: 45%;
+    z-index: 1;
+  }
+}

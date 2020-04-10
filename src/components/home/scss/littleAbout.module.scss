@@ -1,0 +1,73 @@
+@import "../../../baseStyles/shared.scss";
+
+.littleAboutContainer {
+  width: $xmLittleAboutWidth;
+  margin: 0 auto;
+
+  @include landscapeTablet() {
+    width: $mdLittleAboutWidth;
+  }
+  @include desktop() {
+    width: $lgLittleAboutWidth;
+  }
+  @include largeDesktop() {
+    width: $xlLittleAboutWidth;
+  }
+
+  .beyond {
+    font-family: $titleFont;
+    color: white;
+    font-size: 22px;
+    @include landscapeTablet() {
+      font-size: 24px;
+    }
+    @include largeDesktop() {
+      font-size: 28px;
+    }
+  }
+
+  .engineering {
+    @extend .beyond;
+    color: $primaryColor;
+    // this is for gradient in text
+    // background: -webkit-gradient(
+    //   linear,
+    //   left top,
+    //   left bottom,
+    //   from($gradientValue1),
+    //   to($gradientValue1)
+    // );
+    // background: linear-gradient($gradientValue1, $gradientValue2);
+    // -webkit-background-clip: text;
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // up to here
+  }
+
+  .subtitle {
+    font-family: $bodyFont;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    @include landscapeTablet() {
+      font-size: 11px;
+    }
+    @include largeDesktop() {
+      font-size: 12px;
+      letter-spacing: 3px;
+      padding-bottom: 0px;
+    }
+  }
+
+  .littleAboutContent {
+    font-family: $bodyFont;
+    color: white;
+    font-size: $bodyFontSize;
+    @include largeDesktop() {
+      padding-top: 10px;
+      line-height: 1.6em;
+    }
+  }
+}

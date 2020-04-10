@@ -1,0 +1,60 @@
+@import "../../../baseStyles/shared.scss";
+
+.outerContainer {
+  background-color: $fadedbg;
+
+  .container {
+    @include containerInside;
+    .digitalPartners {
+      @include heading;
+    }
+
+    .gridContainer {
+      // width: 60%;
+      // margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-column-gap: 6rem;
+      grid-row-gap: 2rem;
+
+      @include landscapeTablet() {
+        width: 70%;
+        margin: 0 auto;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      @include desktop() {
+        width: 65%;
+        margin: 0 auto;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      a {
+        outline: none;
+        img {
+          border: 1px solid $fadedbg;
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+
+          width: 100%;
+          height: auto;
+
+          filter: gray;
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+          transition: all 0.3s ease;
+          &:hover {
+            filter: none;
+            -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
+            transition: all 0.3s ease;
+          }
+
+          @include landscapeTablet {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

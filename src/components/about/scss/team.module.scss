@@ -1,0 +1,141 @@
+@import "../../../baseStyles/shared.scss";
+
+.teamOuter {
+  width: 100%;
+  background-color: white;
+
+  .teamInner {
+    @include containerInside;
+  }
+
+  .ourTeam {
+    @include heading;
+  }
+
+  .teamCategory {
+    font-family: $titleFont;
+    color: $title;
+    font-size: 18px;
+    padding-bottom: 15px;
+
+    @include landscapeTablet {
+      font-size: 24px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .dividerHalf {
+    @include dividerHalf;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 1rem;
+    grid-row-gap: 2rem;
+    list-style: none;
+
+    @include landscapeTablet() {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    @include desktop() {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    li {
+      .gridElement {
+        position: relative;
+        width: 150px;
+        height: 150px;
+
+        @include landscapeTablet() {
+          width: 200px;
+          height: 200px;
+        }
+
+        @include desktop() {
+          width: 230px;
+          height: 230px;
+
+          &:hover {
+            .photoWrapper {
+              filter: none;
+              -webkit-filter: grayscale(0%);
+              filter: grayscale(0%);
+              transition: all 0.3s ease;
+            }
+
+            .teamInfoWrapper {
+              .team {
+                .post {
+                  color: $primaryColor;
+                  transition: color 0.3s ease;
+                }
+              }
+            }
+          }
+        }
+
+        .photoWrapper {
+          position: absolute;
+          width: 65%;
+          height: 65%;
+          border-radius: 50% !important;
+          z-index: 1;
+          left: 50%;
+          transform: translate(-50%, 0);
+          // background-image: url("https://www.carolines.com/wp-content/uploads/2019/09/jason-nash.jpg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          filter: gray;
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+          transition: all 0.3s ease;
+        }
+
+        .teamInfoWrapper {
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          height: 75%;
+          background-color: $fadedbg;
+          .team {
+            position: absolute;
+            top: 60%;
+            width: 150px;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            .name {
+              color: $title;
+              font-family: $titleFont;
+              font-size: $bodyFontSize * 0.8;
+              text-align: center;
+              @include landscapeTablet() {
+                font-size: $bodyFontSize;
+              }
+            }
+
+            .post {
+              font-family: $bodyFont;
+              color: $primaryColor;
+              transition: color 0.3s ease;
+              font-size: $bodyFontSize * 0.8;
+              text-align: center;
+              @include landscapeTablet() {
+                font-size: $bodyFontSize;
+              }
+              @include desktop {
+                color: $bodytxt;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

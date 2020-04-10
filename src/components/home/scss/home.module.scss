@@ -1,0 +1,250 @@
+@import "../../../baseStyles/shared.scss";
+
+.divider {
+  @include divider;
+}
+
+.dividerHalf {
+  @include dividerHalf;
+}
+
+.parallax {
+  // background-image: url("../../../assets/images/toContact.jpg");
+  // min-height: 200px;
+  height: auto;
+
+  width: 100%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+
+  // pseudo elemen to reduce the background image's brightness
+  &:after {
+    content: "";
+    position: absolute;
+    background-image: url("../../../assets/images/toContact.jpg");
+    /* parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; // makes sure that the background image sits below the content
+  }
+}
+
+.parentDiv {
+  position: relative;
+  .logo {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    position: absolute;
+    top: -6%;
+    left: -20%;
+    opacity: 0.4;
+    @include landscapeTablet() {
+      width: 250px;
+      top: -12%;
+      left: -15%;
+    }
+
+    @include largeDesktop() {
+      width: 400px;
+      top: -30%;
+      left: -10%;
+    }
+  }
+
+  .highrise {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    right: -10%;
+    bottom: -1%;
+    opacity: 0.4;
+
+    @include landscapeTablet {
+      width: 250px;
+      right: -10%;
+      bottom: -2%;
+    }
+
+    @include largeDesktop {
+      width: 300px;
+      right: -5%;
+      bottom: -3%;
+    }
+  }
+}
+
+.dividerFooter {
+  height: 35px;
+}
+
+// sticky menu v3
+.stickyOuterCover {
+  position: absolute;
+  right: 0px;
+  top: 65%;
+  transform: translate(0, -50%);
+
+  width: 400px;
+  height: 420px;
+  // background-color: rgba(0, 255, 0, 0.2);
+
+  z-index: 60;
+
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+
+  .box {
+    position: absolute;
+    width: 100%;
+    height: 190px;
+    background-color: #121212;
+    transition: all 0.5s cubic-bezier(0.88, 0.25, 0.61, 0.65);
+  }
+
+  .contentCover {
+    position: absolute;
+    top: 20px;
+    .informationTech {
+      padding-top: 30px;
+      // padding-left: 50px;
+      padding-right: 40px;
+      transition: padding-left 0.35s ease-in;
+      h5 {
+        font-family: $titleFont;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      p {
+        overflow: hidden;
+        font-family: $bodyFont;
+        font-size: 15px;
+        color: $bodytxt;
+        padding-top: 15px;
+        opacity: 0;
+        transition: all 1s cubic-bezier(1, 0.24, 0.69, 0.75);
+      }
+    }
+    .engineering {
+      @extend .informationTech;
+    }
+    .education {
+      @extend .informationTech;
+    }
+  }
+}
+
+// sticky menu v2
+
+// .outerCover {
+//   position: absolute;
+//   right: 0px;
+//   top: 50%;
+//   transform: translate(0, -50%);
+//   height: 200px;
+//   width: 200px;
+//   background-color: white;
+//   z-index: 101;
+// }
+
+// .cover {
+//   position: absolute;
+//   // top: 0;
+//   right: 0;
+//   height: 200px;
+//   width: 300px;
+//   background-color: #121212;
+//   z-index: 99;
+//   transition: all 0.5s ease-in-out;
+// }
+
+// .stickyCover {
+//   position: absolute;
+//   right: 0px;
+//   top: 200px;
+//   background-color: white;
+//   z-index: 100;
+// }
+
+// sticky menu v1
+// .stickyBar {
+//   position: fixed;
+//   right: 0px;
+//   top: 50%;
+//   transform: translate(0, -50%);
+//   width: 340px;
+//   cursor: pointer;
+
+//   .informationTech {
+//     padding: 0.8em 1em 0em 1.4em;
+//     background-color: #121212;
+//     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+//     &:hover {
+//       h4 {
+//         &:after {
+//           opacity: 1;
+//           width: 10% !important;
+//           margin-top: 10px;
+//         }
+//       }
+
+//       .content {
+//         max-height: 500px;
+//         opacity: 1;
+//       }
+//     }
+
+//     h4 {
+//       font-family: $titleFont;
+//       color: white;
+//       font-size: 16px;
+//       text-align: left;
+//       padding-top: 1em;
+//       text-transform: uppercase;
+//       &:after {
+//         // before => border top, after => border bottom
+//         content: "";
+//         display: block;
+//         width: 0% !important;
+//         border-top: 2.2px solid $primaryColor;
+//         margin-top: 0px;
+//         opacity: 0;
+//         transition: all 0.5s ease 0s;
+//       }
+//     }
+
+//     .content {
+//       max-height: 0px;
+//       transition: all 0.8s ease-in-out;
+//       overflow: hidden;
+//       opacity: 0;
+//       font-family: $bodyFont;
+//       color: $bodytxt;
+//       font-size: 15px;
+//       padding-bottom: 1.5em;
+//     }
+//   }
+
+//   .engineering {
+//     @extend .informationTech;
+//   }
+
+//   .education {
+//     @extend .informationTech;
+//   }
+
+//   .stickyDivider {
+//     height: 15px;
+//   }
+// }

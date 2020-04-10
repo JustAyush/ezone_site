@@ -1,0 +1,40 @@
+@import "../../../baseStyles/shared.scss";
+
+.container {
+  @include container;
+
+  .gridCol {
+    text-align: center;
+    .number {
+      font-family: $titleFont;
+      color: $title;
+      font-size: 35px;
+
+      @include landscapeTablet {
+        font-size: 45px;
+      }
+    }
+
+    .plusSign {
+      @extend .number;
+      display: inline-block;
+      padding-left: 5px;
+    }
+
+    .content {
+      font-family: $bodyFont;
+      color: $bodytxt;
+      font-size: 16px;
+      @include landscapeTablet {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .gridColUpper {
+    margin-bottom: 30px;
+    @include landscapeTablet {
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import "../../../baseStyles/shared.scss";
+
+.footerSection {
+  width: 85%;
+  margin: 0 auto;
+
+  .smallSeparator {
+    height: 25px;
+  }
+
+  .footer {
+    width: 85%;
+    margin: 0 auto;
+
+    .footerDivider {
+      height: 20px;
+    }
+
+    .row {
+      margin: 0px;
+      padding: 0px;
+
+      .ezoneLogo {
+        width: 160px;
+        height: auto;
+      }
+    }
+
+    p {
+      font-family: $titleFont;
+      font-size: 16px;
+      color: $title;
+    }
+
+    .flexContainer {
+      display: flex;
+      flex-wrap: wrap;
+      color: $title;
+      a {
+        color: $bodytxt;
+        .icon {
+          width: 25px;
+          height: auto;
+          margin-right: 22px;
+
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+        .iconYT {
+          @extend .icon;
+          width: 35px;
+        }
+      }
+    }
+
+    .copyrightSection {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      p {
+        font-family: $bodyFont;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.footerInnerDivider {
+  height: 20px;
+}
+
+.footerDividerforCopyRight {
+  height: 20px;
+  @include desktop {
+    height: 50px;
+  }
+}

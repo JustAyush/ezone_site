@@ -1,0 +1,16 @@
+@import "../../../baseStyles/shared.scss";
+
+// for react loading
+
+.loadingParent {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loadingChild {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

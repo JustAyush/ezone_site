@@ -1,0 +1,210 @@
+@import "../../../baseStyles/shared.scss";
+
+.serviceOuterContainer {
+  background-color: $fadedbg;
+  width: 100%;
+  .serviceContainer {
+    @include container;
+
+    .ourServices {
+      @include heading;
+    }
+
+    .gridParent {
+      display: grid;
+      grid-template-areas:
+        "Container-1"
+        "Container-2"
+        "Container-3"
+        "Container-4"
+        "Container-5"
+        "Container-6";
+      grid-template-columns: repeat(1, auto);
+      grid-template-rows: repeat(6, auto);
+      align-content: center;
+      grid-column-gap: 80px;
+      grid-row-gap: 25px;
+
+      @include portraitTablet() {
+        grid-template-areas:
+          "Container-1 Container-2"
+          "Container-3 Container-4"
+          "Container-5 Container-6";
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+      }
+
+      @include landscapeTablet() {
+        grid-template-areas:
+          "Container-1 Container-2 Container-3"
+          "Container-4 Container-5 Container-6";
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, auto);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+      }
+
+      @include landscapeTablet() {
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+      }
+
+      .gridChild {
+        background-color: palegreen;
+        height: 200px;
+
+        @include portraitTablet() {
+          height: 260px;
+        }
+        @include landscapeTablet() {
+          height: 250px;
+        }
+        @include desktop() {
+          height: 275px;
+        }
+        @include largeDesktop() {
+          height: 300px;
+        }
+      }
+
+      .innerService {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        -webkit-transition: background-color 0.5s ease 0s;
+        transition: background-color 0.5s ease 0s;
+        text-align: center;
+        padding-top: 10%;
+        padding-bottom: 10%;
+
+        -webkit-box-shadow: 0 10px 6px -6px rgb(214, 213, 213);
+        box-shadow: 0 10px 6px -6px rgb(214, 213, 213);
+
+        @include portraitTablet() {
+          padding-top: 15%;
+          padding-bottom: 10%;
+        }
+
+        @include landscapeTablet() {
+          padding-top: 20%;
+          padding-bottom: 10%;
+        }
+
+        @include largeDesktop() {
+          padding-top: 20%;
+          padding-bottom: 10%;
+
+          &:hover {
+            background-color: $primaryColor;
+            transition: background-color 0.5s ease 0s;
+
+            .icon {
+              color: white;
+              -webkit-transition: color 0.5s ease 0s;
+              transition: color 0.5s ease 0s;
+            }
+
+            p {
+              color: white;
+              -webkit-transition: color 0.5s ease 0s;
+              transition: color 0.5s ease 0s;
+            }
+
+            .description {
+              color: $fadedbg;
+              -webkit-transition: color 0.5s ease 0s;
+              transition: color 0.5s ease 0s;
+            }
+          }
+        }
+
+        .icon {
+          margin-bottom: 15px;
+          font-size: 28px;
+          color: $primaryColor;
+          -webkit-transition: color 0.5s ease 0s;
+          transition: color 0.5s ease 0s;
+          @include landscapeTablet() {
+            //   margin-bottom: 22px;
+            font-size: 28px;
+          }
+          @include largeDesktop() {
+            margin-bottom: 15px;
+            font-size: 34px;
+          }
+        }
+
+        p {
+          font-family: $titleFont;
+          color: $title;
+          -webkit-transition: color 0.5s ease 0s;
+          transition: color 0.5s ease 0s;
+          padding: 0px;
+          width: 60%;
+          margin: auto;
+          font-size: 14px;
+          @include landscapeTablet() {
+            width: 80%;
+            font-size: 14px;
+          }
+          @include largeDesktop() {
+            font-size: 16.5px;
+          }
+        }
+
+        .description {
+          font-family: $bodyFont;
+          color: $bodytxt;
+          -webkit-transition: color 0.5s ease 0s;
+          transition: color 0.5s ease 0s;
+          font-size: 12px;
+          width: 65%;
+          margin: auto;
+          // margin-top: 12px;
+          @include landscapeTablet() {
+            //   margin-top: 15px;
+            font-size: 12px;
+          }
+          @include largeDesktop() {
+            //   margin-top: 20px;
+            font-size: 13.5px;
+          }
+        }
+      }
+
+      .gridChild1 {
+        grid-area: Container-1;
+      }
+      .gridChild2 {
+        grid-area: Container-2;
+      }
+      .gridChild3 {
+        grid-area: Container-3;
+      }
+      .gridChild4 {
+        grid-area: Container-4;
+      }
+      .gridChild5 {
+        grid-area: Container-5;
+      }
+      .gridChild6 {
+        grid-area: Container-6;
+      }
+    }
+  }
+}
+
+.dividerInside {
+  height: $dividerMobile;
+  @include landscapeTablet() {
+    height: $dividerTablet;
+  }
+
+  @include largeDesktop() {
+    height: $dividerDesktop;
+  }
+}

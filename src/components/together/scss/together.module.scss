@@ -1,0 +1,112 @@
+@import "../../../baseStyles/shared.scss";
+
+.toContactOuter {
+  width: 100%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+
+  // pseudo elemen to reduce the background image's brightness
+  &:after {
+    content: "";
+    position: absolute;
+    background-image: url("../../../assets/images/toContact.jpg");
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; // makes sure that the background image sits below the content
+  }
+
+  .toContactInner {
+    width: $xmContainerWidth/1.2;
+    margin: 0 auto;
+    padding-top: $innerPaddingMobile;
+    padding-bottom: $innerPaddingMobile;
+
+    @include landscapeTablet() {
+      width: $mdContainerWidth/1.2;
+      padding-top: $innerPaddingTablet;
+      padding-bottom: $innerPaddingTablet;
+    }
+    @include desktop() {
+      width: $lgContainerWidth;
+    }
+    @include largeDesktop() {
+      width: $xlContainerWidth;
+      padding-top: $innerPaddingDesktop;
+      padding-bottom: $innerPaddingDesktop;
+    }
+
+    .toContactGrid {
+      padding: 0px;
+      margin: 0px;
+
+      .betterTogether {
+        font-family: $titleFont;
+        color: white;
+        font-size: 26px;
+        @include landscapeTablet() {
+          font-size: 28px;
+        }
+        @include largeDesktop() {
+          margin-top: 40px;
+          font-size: 35px;
+          width: 80%;
+          padding-left: 20px;
+        }
+      }
+
+      .toContactSubSection {
+        margin-top: 20px;
+
+        .subSection {
+          background-color: white;
+          margin-bottom: 15px;
+          padding: 20px 18px 20px 18px;
+
+          .heading {
+            font-family: $titleFont;
+            font-weight: bold;
+            color: $title;
+            font-size: $headingMobile * 1.1;
+            @include landscapeTablet() {
+              font-size: $headingTablet;
+            }
+            @include largeDesktop() {
+              font-size: $headingDesktop/1.3;
+            }
+          }
+
+          .content {
+            font-family: $bodyFont;
+            color: $bodytxt;
+            font-size: $bodyFontSize;
+          }
+
+          .link {
+            font-family: $titleFont;
+            color: $primaryColor;
+            font-size: 16px;
+
+            &:hover {
+              text-decoration: none;
+              .icon {
+                margin-left: 20px;
+                transition: margin-left 0.3s ease;
+              }
+            }
+
+            .icon {
+              font-size: 22px;
+              margin-left: 0px;
+              transition: margin-left 0.3s ease;
+              margin-bottom: -3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

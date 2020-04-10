@@ -1,0 +1,26 @@
+// Media queries
+$portraitTablet: 576px; //sm
+$landscapeTablet: 768px; //md
+$desktop: 992px; //lg
+$largeDesktop: 1200px; //xl
+
+@mixin portraitTablet {
+  @media (min-width: #{$portraitTablet}) {
+    @content;
+  }
+}
+@mixin landscapeTablet {
+  @media (min-width: #{$landscapeTablet}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin largeDesktop {
+  @media (min-width: #{$largeDesktop}) {
+    @content;
+  }
+}

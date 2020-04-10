@@ -1,0 +1,93 @@
+@import "../../../baseStyles/shared.scss";
+
+// About page's background
+.about {
+  width: 100%;
+  height: $bgheightMobile;
+  position: relative;
+
+  @include landscapeTablet() {
+    height: $bgheightTablet;
+  }
+  @include largeDesktop() {
+    height: $bgheightDesktop;
+  }
+
+  // pseudo element to reduce the background image's brightness
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: brightness(60%);
+
+    background-image: url("https://www.stantec.com/content/dam/stantec/images/landing-pages/About/124660.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .backgroundContent {
+    // positing the text at the center
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -60%);
+    width: auto;
+
+    // basic font properties
+    font-family: $titleFont;
+    font-size: $bgfontMobile;
+    color: white;
+
+    @include landscapeTablet() {
+      font-size: $bgfontTablet;
+    }
+    @include largeDesktop() {
+      font-size: $bgfontDesktop;
+    }
+  }
+}
+
+// Service's page background
+.services {
+  @extend .about;
+  &:after {
+    background-image: url("https://cihost.uberflip.com/stantec/newIdeasHub/build/images/futureOfWater.jpg");
+  }
+}
+
+// Work's page background
+.works {
+  @extend .about;
+  &:after {
+    background-image: url("https://images.unsplash.com/photo-1569025591510-a69144e20084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+  }
+}
+
+// Contact Us's page background
+.contact {
+  @extend .about;
+  &:after {
+    background-image: url("https://us02-imgcdn.ymcart.com/29240/2019/05/27/b/6/b69cee97500aa5a5.jpg");
+  }
+}
+
+// Our Client's page background
+.client {
+  @extend .about;
+  &:after {
+    background-image: url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80");
+  }
+}
+
+// Event's page background
+.events {
+  @extend .about;
+  &:after {
+    background-image: url("https://technical.ly/baltimore/wp-content/uploads/sites/3/2016/11/12194777_1631361443791857_8577505844317356910_o.jpg");
+  }
+}

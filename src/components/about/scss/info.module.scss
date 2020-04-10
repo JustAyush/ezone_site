@@ -1,0 +1,141 @@
+@import "../../../baseStyles/shared.scss";
+
+.infoSection {
+  width: $xmContainerWidth;
+  margin: 0 auto;
+
+  @include landscapeTablet() {
+    width: $mdContainerWidth;
+  }
+  @include desktop() {
+    width: $lgContainerWidth;
+  }
+  @include largeDesktop() {
+    width: $xlContainerWidth;
+  }
+
+  .gridInfoParent {
+    display: grid;
+    grid-template-areas:
+      "Container-1"
+      "Container-2";
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(2, auto);
+    align-content: center;
+    grid-column-gap: 0;
+    grid-row-gap: 25px;
+
+    @include desktop() {
+      grid-template-areas: "Container-1 Container-2";
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(1, auto);
+      grid-column-gap: 140px;
+      grid-row-gap: 0px;
+    }
+
+    .gridInfoElement1 {
+      grid-area: Container-1;
+      align-self: center;
+
+      .heading {
+        font-family: $titleFont;
+        font-size: $headingMobile;
+        color: $title;
+
+        @include landscapeTablet() {
+          font-size: $headingTablet;
+        }
+        @include largeDesktop() {
+          font-size: $headingDesktop;
+        }
+      }
+
+      .content {
+        font-family: $bodyFont;
+        font-size: $bodyFontSize;
+        color: $bodytxt;
+      }
+
+      .downloadBtn {
+        background-color: transparent;
+        -webkit-transition: background-color 0.5s ease 0s;
+        transition: background-color 0.5s ease 0s;
+        border-color: $bodytxt;
+        color: $bodytxt;
+        -webkit-transition: color 0.5s ease 0s;
+        transition: color 0.5s ease 0s;
+        display: inline-block;
+        font-size: $btnfontSizeMobile;
+        margin-top: $btnMarginTopMobile;
+        font-family: $titleFont;
+
+        &:hover {
+          color: white;
+          -webkit-transition: color 0.5s ease 0s;
+          transition: color 0.5s ease 0s;
+          background-color: $primaryColor;
+          transition: background-color 0.5s ease 0s;
+          border-color: $primaryColor;
+        }
+
+        &:focus {
+          background-color: $primaryColor;
+          color: white;
+        }
+
+        @include landscapeTablet() {
+          font-size: $btnfontSizeTablet;
+          margin-top: $btnMarginTopTablet;
+        }
+        @include largeDesktop() {
+          font-size: $btnfontSizeDesktop;
+          margin-top: $btnMarginTopDesktop * 1.5;
+        }
+      }
+    }
+
+    .gridInfoElement2 {
+      grid-area: Container-2;
+
+      border: 3px solid $fadedbg;
+      padding: 2em 2em;
+
+      .quoteLeft {
+        color: #a1a1a1;
+        font-size: 30px;
+      }
+      .quoteDivider {
+        height: 15px;
+      }
+
+      .quoteContent {
+        font-family: $titleFont;
+        font-size: $headingMobile;
+        color: $title;
+
+        @include landscapeTablet() {
+          font-size: $headingTablet;
+        }
+        @include largeDesktop() {
+          font-size: $headingDesktop * 0.8;
+        }
+      }
+
+      .quoteRight {
+        color: #a1a1a1;
+      }
+
+      .name {
+        font-family: $bodyFont;
+        font-size: $bodyFontSize;
+        color: $title;
+      }
+
+      .position {
+        @extend .name;
+        font-size: $bodyFontSize * 0.8;
+        color: $bodytxt;
+      }
+    }
+  }
+}

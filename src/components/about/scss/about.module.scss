@@ -1,0 +1,12 @@
+@import "../../../baseStyles/shared.scss";
+
+.divider {
+  height: $dividerMobile;
+  @include landscapeTablet() {
+    height: $dividerTablet;
+  }
+
+  @include largeDesktop() {
+    height: $dividerDesktop;
+  }
+}

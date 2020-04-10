@@ -1,0 +1,165 @@
+@import "../../../baseStyles/shared.scss";
+
+$navContentHtMobile: 75px;
+$navContentHtDesktop: 90px;
+
+$navLinkBottom: 32px;
+
+.navContent {
+  height: $navContentHtMobile;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  transition: all 0.3s ease 0s;
+  @include desktop() {
+    height: $navContentHtDesktop;
+    // background-color: pink;
+  }
+  nav {
+    display: flex;
+    height: $navContentHtMobile;
+    // background-color: yellow;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-bottom: 0.5px solid rgba(214, 204, 204, 0.5);
+    top: 0;
+    transition: all 0.3s ease 0s;
+
+    @include desktop() {
+      height: $navContentHtDesktop;
+    }
+
+    .logo {
+      width: 160px;
+      .brandLogo {
+        width: 80%;
+        height: auto;
+        cursor: pointer;
+        @include desktop() {
+          width: 90%;
+        }
+      }
+    }
+
+    .navDesktop {
+      list-style: none;
+      display: none;
+      justify-content: space-around;
+      // padding-top: 35px;
+      width: 40%;
+      left: 60%;
+      // min-height: 14vh;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      // position: relative;
+
+      @include desktop() {
+        display: flex;
+      }
+
+      li {
+        // position: relative;
+        font-family: $titleFont;
+        font-size: 16px;
+        // background-color: blue;
+
+        .myNavLink {
+          // background-color: yellow;
+          padding-bottom: $navLinkBottom;
+          color: white;
+          text-decoration: none;
+          transition: all 0.05s ease 0s;
+          outline: none;
+          &:hover {
+            border-bottom: 4px solid $primaryColor;
+          }
+        }
+        .myNavLinkScrolled {
+          @extend .myNavLink;
+          color: $title;
+          transition: all 0.05s ease 0s;
+        }
+
+        .active {
+          border-bottom: 4px solid $primaryColor;
+        }
+      }
+    }
+
+    .burger {
+      cursor: pointer;
+
+      @include desktop() {
+        display: none;
+      }
+      div {
+        width: 25px;
+        height: 2px;
+        background-color: $primaryColor;
+        margin: 6px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .burgerClose {
+      @extend .burger;
+
+      .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        background-color: $title;
+      }
+      .line2 {
+        opacity: 0;
+      }
+      .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+        background-color: $title;
+      }
+    }
+  }
+}
+
+.overlayNav {
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden; // this is absolutely necessary here. Otherwise, the navContents are shown even if the width is set to zero
+  height: 100vh;
+  padding-top: 10vh;
+  width: 0%;
+  background-color: white;
+  transition: width 0.25s ease-in;
+  opacity: 0.8;
+  .navMobile {
+    position: absolute;
+    list-style: none;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 30px;
+
+    li {
+      padding-bottom: 35px;
+      margin-bottom: 0px;
+      .mobileNavLink {
+        color: $title;
+        font-family: $titleFont;
+        font-size: 18px;
+        // padding-bottom: 25px;
+      }
+
+      .active {
+        color: $primaryColor;
+      }
+    }
+  }
+}
+
+.overlayNavShow {
+  @extend .overlayNav;
+  width: 100%;
+}
