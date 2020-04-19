@@ -28,7 +28,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    fetch("http://www.json-generator.com/api/json/get/bUVZHGUtiW?indent=2")
+    fetch("http://www.json-generator.com/api/json/get/bLLeClDiOG?indent=2")
       .then(response => response.json())
       .then(responseJson => {
         if (responseJson.status === "error") {
